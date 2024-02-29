@@ -1,14 +1,21 @@
 package com.prabhu.hibernate.IntroProject;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 @Entity
+@Table(name = "Laptop_Picks")
 public class Laptop {
 
 	@Id
+	@Column(name = "laptop_id")
 	private int id;
-	private String name;
+	
+	private LaptopName laptopName;
+	
+	@Column(name = "laptop_price")
 	private int price;
 	
 	public int getId() {
@@ -18,11 +25,11 @@ public class Laptop {
 		this.id = id;
 	}
 	
-	public String getName() {
-		return name;
+	public LaptopName getLaptopName() {
+		return laptopName;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setLaptopName(LaptopName laptopName) {
+		this.laptopName = laptopName;
 	}
 	
 	public int getPrice() {
@@ -32,5 +39,8 @@ public class Laptop {
 		this.price = price;
 	}
 	
-	
+	@Override
+	public String toString() {
+		return "Laptop [id=" + id + ", name=" + laptopName + ", price=" + price + "]";
+	}
 }
